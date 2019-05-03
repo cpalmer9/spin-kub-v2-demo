@@ -42,3 +42,4 @@ spec:
     app: spinkub1
   type: LoadBalancer
 
+
