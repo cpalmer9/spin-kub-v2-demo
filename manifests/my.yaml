@@ -18,7 +18,7 @@ metadata:
     stack: frontend
     app: spinkub1
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       source: demo
@@ -47,7 +47,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: spinkub1
+  name: spinkub1-svc
   namespace: dev
 spec:
   selector:
