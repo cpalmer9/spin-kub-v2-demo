@@ -1,32 +1,18 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: spinnaker-demo-config
-  namespace: dev
-data:
-  NEW_FEATURE: "true"
-
----
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spinkub1
   namespace: dev
   labels:
-    source: demo
-    stack: frontend
     app: spinkub1
 spec:
   replicas: 2
   selector:
     matchLabels:
-      source: demo
       app: spinkub1
   template:
     metadata:
       labels:
-        source: demo
         app: spinkub1
     spec:
       containers:
@@ -38,9 +24,6 @@ spec:
           httpGet:
             path: /
             port: 8000
-        envFrom:
-        - configMapRef:
-            name: spinnaker-demo-config
 
 ---
 
@@ -54,7 +37,7 @@ spec:
   ports:
     - port: 80
       protocol: TCP
-      targetPort: 80
+      targetPort: 8000
   selector:
     app: spinkub1
   type: LoadBalancer
