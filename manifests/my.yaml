@@ -11,23 +11,23 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spinnaker-demo
+  name: spinkub1
   namespace: dev
   labels:
     source: demo
     stack: frontend
-    app: spinnaker
+    app: spinkub1
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       source: demo
-      app: spinnaker
+      app: spinkub1
   template:
     metadata:
       labels:
         source: demo
-        app: spinnaker
+        app: spinkub1
     spec:
       containers:
       - name: primary
@@ -47,12 +47,12 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: spinnaker-demo
+  name: spinkub1
   namespace: dev
 spec:
   selector:
     source: demo
-    app: spinnaker
+    app: spinkub1
   ports:
   - protocol: TCP
     port: 80
