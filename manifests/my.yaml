@@ -44,16 +44,18 @@ spec:
 
 ---
 
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: spinkub1-svc
+  labels:
+  name: spink8sv2-service
   namespace: dev
 spec:
-  selector:
-    source: demo
-    app: spinkub1
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8000
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: spink8sv2
+  type: LoadBalancer
+
