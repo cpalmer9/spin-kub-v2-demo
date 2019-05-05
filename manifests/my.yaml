@@ -6,7 +6,7 @@ metadata:
   labels:
     app: spinkub1
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: spinkub1
