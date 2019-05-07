@@ -21,7 +21,7 @@ spec:
         lifecycle:
           postStart:
             exec:
-              command: ["/bin/sed", "-i", '"s/$HOSTNAME/__HOSTNAME__/"', "/content/index.html"]
+              command: ["/bin/sed", "-i", '"s/__HOSTNAME__/$HOSTNAME/"', "/content/index.html"]
         ports:
         - containerPort: 8000
         readinessProbe:
