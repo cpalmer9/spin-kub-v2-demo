@@ -18,10 +18,6 @@ spec:
       containers:
       - name: primary
         image: index.docker.io/cpalmer9/spin-kub-v2-demo
-        lifecycle:
-          postStart:
-            exec:
-              command: ["/bin/sed", "-i", '"s/__HOSTNAME__/$HOSTNAME/"', "/content/index.html"]
         ports:
         - containerPort: 8000
         readinessProbe:
