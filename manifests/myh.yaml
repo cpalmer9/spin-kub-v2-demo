@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spinkub1
+  namespace: harness-dev
+  labels:
+    app: spinkub1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spinkub1
+  template:
+    metadata:
+      labels:
+        app: spinkub1
+    spec:
+      containers:
+      - name: primary
+        image: index.docker.io/cpalmer9/spin-kub-v2-demo
+        ports:
+        - containerPort: 8000
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8000
+
