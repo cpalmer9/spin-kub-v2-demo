@@ -6,6 +6,7 @@ import (
 	"os"
 	"fmt"
 	"net/http"
+    "strings"
 )
 
 func index(w http.ResponseWriter, r *http.Request) {
