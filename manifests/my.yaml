@@ -7,7 +7,7 @@ metadata:
     app: spinkub1
 spec:
   replicas: 3
-  revisonHistoryLimit: 3
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: spinkub1
